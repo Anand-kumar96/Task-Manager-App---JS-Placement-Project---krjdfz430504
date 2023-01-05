@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task manager | Anand Kumar</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1 class="heading">Task Manager</h1>
+    <div class="add_Task">
+        <form>
+            <input type="text" name="task" placeholder="Add Task Name..." class="add_name" />
+            <input type="submit" value="Add Task" class="submit" />
+        </form>
+    </div>
+    <div class="modal-content">
+        <div class="modal"><span class="text_front"></span></div>
+        <textarea class="text_description" name="" id="textareas" cols="43" rows="15" style="font-size: 12pt"
+            placeholder="write the description here..."></textarea>
+        <div class="modal modal_down">
+            <button class="btn_bottom btn_Cancel">Cancel</button>
+            <button class="btn_bottom btn_Save">Save</button>
+        </div>
+    </div>
+    <button class="color_change">change background</button>
+    <div class="box1">
+        <div class="open">OPEN</div>
+        <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
 
+        </div>
+    </div>
+    <div class="box2">
+        <div class="Progress">IN PROGRESS</div>
+        <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div2">
+
+        </div>
+    </div>
+
+    <div class="box3">
+        <div class="Review">IN REVIEW</div>
+        <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div3">
+
+        </div>
+    </div>
+    <div class="box4">
+        <div class="Done">DONE</div>
+        <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div4">
+        </div>
+    </div>
+
+    <div class="innerContent1" id="div1">
+        <div class="main_content">
+            <div class="task_Name top">
+                <span class="text_container"></span>
+            </div>
+            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
+                style="font-size: 12pt" placeholder="write the description here..."></textarea>
+            <div class="task_Name bottom">
+                <button class="btn_bottom btn_done">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="innerContent2" id="div2">
+        <div class="main_content">
+            <div class="task_Name top">
+                <span class="text_container"></span>
+            </div>
+            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
+                style="font-size: 12pt" placeholder="write the description here..."></textarea>
+            <div class="task_Name bottom">
+                <button class="btn_bottom btn_done">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="innerContent3" id="div3">
+        <div class="main_content">
+            <div class="task_Name top">
+                <span class="text_container"></span>
+            </div>
+            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
+                style="font-size: 12pt" placeholder="write the description here..."></textarea>
+            <div class="task_Name bottom">
+                <button class="btn_bottom btn_done">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="innerContent4" id="div4">
+        <div class="main_content">
+            <div class="task_Name top">
+                <span class="text_container"></span>
+            </div>
+            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
+                style="font-size: 12pt" placeholder="write the description here..."></textarea>
+            <div class="task_Name bottom">
+                <button class="btn_bottom btn_done">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="./colors.js"></script>
+    <script src="./App.js"></script>
+</body>
+
+</html>

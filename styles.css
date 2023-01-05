@@ -1,1 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+    overflow: hidden;
+}
+.heading {
+    position: absolute;
+    color: white;
+    margin-bottom: 615px;
+}
+.color_change {
+    position: absolute;
+    margin-bottom: 618px;
+    position: fixed;
+    padding: 0.6rem 1rem;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 400;
+    background-color: #efd14f;
+    cursor: pointer;
+    border: 2px red;
+    margin-left: 1262px;
+}
+.modal-content {
+    visibility: hidden;
+    position: absolute;
+    background-color: #fefefe;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid #888;
+    width: 423px;
+    height: 410px;
+    border-radius: 10px;
+}
+.modal {
+    background-color: #80dbe4;
+    height: 49.5px;
+    border-radius: 10px 10px 0 0;
+}
+.modal_down {
+    border-radius: 0px 0px 10px 10px;
+}
+.task_Name_Show {
+    margin: 0px 0px 0px 0px;
+}
+.text_front {
+    height: 49px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    width: 404px;
+    font-size: 20pt;
+    padding-top: 9px;
+    margin: 0px 15px;
+    font-size: 20px;
+}
+.add_Task {
+    position: absolute;
+    margin-bottom: 500px;
+}
+.add_name {
+    width: 548px;
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    font-weight: bold;
+}
+.submit {
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 0.4rem 0.2rem;
+    font-weight: bold;
+    color: #970b20;
+}
+.color_change:hover {
+    background-color: rgb(50, 166, 166);
+    color: #eaf1e6;
+}
+.box1,
+.box2,
+.box3,
+.box4 {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: black;
+    width: 290px;
+    height: 410px;
+    margin: 0 18px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+.innerContent1,
+.innerContent2,
+.innerContent3,
+.innerContent4 {
+    position: absolute;
+    border-radius: 10px;
+    width: 290px;
+    height: 410px;
+    visibility: hidden;
+}
+.innerContent1 {
+    margin-left: -978px;
+    background-color: #aff2da;
+}
+.innerContent2 {
+    margin-left: -326px;
+    background-color: #ce91e3;
+}
+.innerContent3 {
+    margin-left: 326px;
+    background-color: #c0fba9;
+}
+.innerContent4 {
+    margin-left: 978px;
+    background-color: #eba9b8f0;
+}
+#textareas {
+    margin: 11px 0 8px 9px;
+    border-radius: 10px;
+    border: 4px red;
+    resize: none;
+    padding: 5px;
+}
+#textareas::-webkit-scrollbar {
+    display: none;
+}
+.task_Name {
+    height: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #86b1b5;
+    display: flex;
+    justify-content: end;
+}
+.top {
+    border-radius: 10px 10px 0 0;
+}
+.bottom {
+    border-radius: 0 0 10px 10px;
+    margin-bottom: -2px;
+    background-color: #86b1b5;
+}
+.note {
+    margin-right: 10px;
+}
+.btn_bottom {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-weight: bold;
+    color: #970b20;
+}
+.submit:hover,
+.add:hover,
+.btn_done:hover {
+    background-color: #83ecb4;
+    cursor: pointer;
+}
+.container {
+    overflow-y: auto;
+    grid-auto-rows: 100px;
+    height: 360px;
+    -ms-overflow-style: none; /* Internet Explorer 10+ hide sidebar */
+    scrollbar-width: none; /* Firefox hide sidebar*/
+}
 
+.container::-webkit-scrollbar {  /*for chrome hide sidebar */
+    display: none;
+}
+.Review {
+    padding: 20px 92px 20px 92px;
+}
+.Progress {
+    padding: 20px 0 20px 85px;
+}
+.Progress,
+.Review,
+.Done,
+.open {
+    background: rgb(34 33 33 / 78%);
+    border-radius: 10px 10px 0 0;
+    height: 50px;
+    color: #d2e3ea;
+    font-size: 18px;
+    font-weight: 600;
+}
+.Done,
+.open {
+    padding: 20px 118px 20px 118px;
+}
+.task {
+    border-radius: 10px;
+    height: 80px;
+    color: black;
+    margin: 8px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.box1 .task {
+    background-color: rgb(102, 253, 253);
+}
+.box2 .task {
+    background-color: #9397ee;
+
+}
+.box3 .task {
+    background-color: #80dbe4;
+}
+.box4 .task {
+    background-color: hsl(154, 64%, 73%);
+}
+.btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 0, 0);
+    background-color: #FFFFFF;
+    align-self: flex-end;
+    margin-right: 9px;
+    cursor: pointer;
+}
+.box2 button {
+    border: 2px solid #dd0cdd;
+}
+.box3 button {
+    border: 2px solid #15c25a;
+}
+.box4 button {
+    border: 2px solid #d89b0b;
+}
+.text {
+    width: 288px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 15px;
+    font-size: 18px;
+    align-self: flex-start;
+}
+.mark {
+    align-self: flex-start;
+    width: 34px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 5px 0 0 5px;
+}
+.box1 .mark {
+    background-color: #e45c4c;
+}
+.box2 .mark {
+    background-color: #df52df;
+}
+.box3 .mark {
+    background-color: #7a8ee8;
+}
+.box4 .mark {
+    background-color: #f5bb32;
+}
+.btn_Cancel {
+    margin-left: 251px;
+}
+.text_container {
+    width: 280px;
+    height: 49px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 9px;
+    margin: 0px 15px;
+    font-size: 18px;
+}
+@media(max-width :430px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: scroll;
+        margin-bottom: 50px;
+    }
+    .heading {
+        position: absolute;
+        margin-bottom: 858px;
+        font-size: x-large;
+    }
+    .add_Task {
+        position: absolute;
+        margin-bottom: 703px;
+    }
+    .add_name {
+        width: 282px;
+    }
+    .color_change {
+        margin-top: -160px;
+        margin-left: 0px;
+        padding: 0.3rem 0.3rem;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .modal-content{
+        width: 383px;
+        height: 400px;
+    }
+    .box1 {
+        margin: 150px 10px 10px 10px;
+    }
+    .box2,
+    .box3,
+    .box4 {
+        margin: 10px;
+        position: relative;
+        width: 280px;
+        height: 389px;
+
+    }
+    .innerContent1,
+    .innerContent2 {
+        margin-left: 0px;
+    }
+    .innerContent1 {
+        position: absolute;
+        margin-bottom: 304px;
+    }
+    .innerContent2 {
+        position: absolute;
+        margin-top: 555px;
+    }
+    .innerContent3 {
+        position: absolute;
+        margin-right: 327px;
+        margin-top: 1415px;
+    }
+    .innerContent4 {
+        position: absolute;
+        margin-right: 982px;
+        margin-top: 2278px;
+    }
+   
+}
