@@ -30,7 +30,7 @@ This is web based live Task Manager App, and this is responsive by nature for bi
 
 ### Screenshot
 
-![screenshot](./images/Screenshot.png)
+![screenshot](./images/Screenshot.jpg)
 
 ## Tech-Stacks-Used
    
