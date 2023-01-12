@@ -1,7 +1,3 @@
-const inc1 = document.querySelector(".innerContent1");
-const inc2 = document.querySelector(".innerContent2");
-const inc3 = document.querySelector(".innerContent3");
-const inc4 = document.querySelector(".innerContent4");
 const box1 = document.querySelector(".box1");
 const box2 = document.querySelector(".box2");
 const box3 = document.querySelector(".box3");
@@ -9,7 +5,7 @@ const box4 = document.querySelector(".box4");
 const addTask = document.querySelector(".add_Task");
 const addText = document.querySelector(".add_name");
 const text_front = document.querySelector(".text_front");
-var description = document.querySelector(".text_description");
+var text_description = document.querySelector(".text_description");
 const btn_Save = document.querySelector(".btn_Save");
 const btn_Cancel = document.querySelector(".btn_Cancel");
 const btn_Done = document.querySelectorAll(".btn_done");
@@ -46,13 +42,6 @@ function createTaskObject(uId, taskName, stat, des) {
 // adding new task
 addTask.addEventListener("submit", (e) => {
     e.preventDefault();
-    for (let i = 0; i < taskStorage.length; i++) {
-        if (addText.value == taskStorage[i].name) {
-            addText.value == "";
-            alert("this task name already exist");
-            return;
-        }
-    }
     if (addText.value == "") {
         alert("input can't be empty");
         return;
@@ -66,8 +55,9 @@ addTask.addEventListener("submit", (e) => {
 // eventListener to add the task
 btn_Save.addEventListener("click", (el) => {
     el.preventDefault();
-    if (description.value == "") {
+    if (text_description.value == "") {
         alert("please enter the description");
+        return;
     }
     document.querySelector(".modal-content").style.visibility = "hidden";
     newTaskAdded();
@@ -78,6 +68,7 @@ btn_Cancel.addEventListener("click", (e) => {
     e.preventDefault();
     document.querySelector(".modal-content").style.visibility = "hidden";
     addText.value = "";
+    text_description.value = "";
     return;
 });
 
@@ -85,11 +76,10 @@ btn_Cancel.addEventListener("click", (e) => {
 function newTaskAdded() {
     var newId = 'u' + Math.random() * 10000000000000000000;
     var taskName = addText.value;
-    var taskDescription = description.value;
+    var taskDescription = text_description.value;
     var status = "Open";
-
     const taskDiv = document.createElement("div");
-    taskDiv.classList.add("nodrop", "task");
+    taskDiv.classList.add("nodrop", "task", "editable");
     taskDiv.setAttribute("draggable", "true");
     taskDiv.setAttribute("ondragstart", "drag(event)");
     taskDiv.setAttribute("id", `${newId}`);
@@ -97,20 +87,22 @@ function newTaskAdded() {
     const mark = document.createElement("span");
     mark.classList.add("nodrop", "mark");
     const text = document.createElement("span");
-    text.classList.add("nodrop", "text");
-    const button = document.createElement("button");
-    button.classList.add("btn", "nodrop");
-    button.setAttribute("onclick", "displayTask(event)")
-    button.setAttribute("id", `${newId}`);
+    text.classList.add("text");
+    const descriptionDiv = document.createElement("div"); //
+    descriptionDiv.classList.add("description_Wrapper"); //
+    const descritionText = document.createElement("p"); //
+    descritionText.classList.add("description_ptag"); //
 
     //append all Elements
+    descriptionDiv.appendChild(descritionText);
     taskDiv.appendChild(mark);
     taskDiv.appendChild(text);
-    taskDiv.appendChild(button);
+    taskDiv.appendChild(descriptionDiv);
 
     document.querySelector(".box1 > .container").appendChild(taskDiv);
     text.innerText = taskName;
-    description.value = "";
+    descritionText.innerText = text_description.value;
+    text_description.value = "";
     addText.value = "";
     taskStorage.push(createTaskObject(newId, taskName, status, taskDescription));
     saveState();
@@ -120,24 +112,27 @@ function newTaskAdded() {
 function render() {
     for (let i = 0; i < taskStorage.length; i++) {
         let taskDiv = document.createElement("div");
-        taskDiv.classList.add("nodrop", "task");
+        taskDiv.classList.add("nodrop", "task", "editable");
         taskDiv.setAttribute("draggable", "true");
         taskDiv.setAttribute("ondragstart", "drag(event)");
         taskDiv.setAttribute("id", `${taskStorage[i].id}`);
         const mark = document.createElement("span");
-        mark.classList.add("nodrop", "mark");
+        mark.classList.add("mark");
         const text = document.createElement("span");
-        text.classList.add("nodrop", "text");
-        const button = document.createElement("button");
-        button.classList.add("btn", "nodrop");
-        button.setAttribute("onclick", "displayTask(event)")
-        button.setAttribute("id", `${taskStorage[i].id}`);
-
+        text.classList.add("text");
+        const descriptionDiv = document.createElement("div"); //
+        descriptionDiv.classList.add("description_Wrapper"); //
+        const descritionText = document.createElement("p"); //
+        descritionText.classList.add("description_ptag"); //
+        descriptionDiv.appendChild(descritionText);
         taskDiv.appendChild(mark);    //append all created element
         taskDiv.appendChild(text);
-        taskDiv.appendChild(button);
+        taskDiv.appendChild(descriptionDiv);
         text.innerText = taskStorage[i].name;
-
+        if (taskStorage[i].description != "") {
+            taskDiv.classList.remove("editable");
+        }
+        descritionText.innerText = taskStorage[i].description;
         let taskParent; // checking curent box status
         if (taskStorage[i].status === "Open")
             taskParent = document.querySelector(".box1 > .container")
@@ -150,26 +145,40 @@ function render() {
         taskParent.appendChild(taskDiv);
     }
 }
-
+const deleteTask = (e) => {
+    e.preventDefault();
+    let data = e.dataTransfer.getData("text");
+    for (var i = 0; i < taskStorage.length; i++) {
+        const taskDeleted = taskStorage[i];
+        if (taskDeleted.status == 'Done') {
+            return;
+        }
+        if (data == taskDeleted.id) {
+            taskStorage.splice(i, 1);
+            location.reload(true);
+        }
+    }
+    saveState();
+};
 // drag task  
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
     dragTarget = ev.target.id
 }
 
-//drop task
+//drop task-->event delegation
+var targetId;
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    if (ev.target.classList.contains("nodrop") ||
-        ev.dataTransfer.getData("text") == "OPEN" ||
-        ev.dataTransfer.getData("text") == "IN PROGRESS" ||
-        ev.dataTransfer.getData("text") == "IN REVIEW" ||
-        ev.dataTransfer.getData("text") == "DONE") {
-        return;
+    let dropLocation = ev.target.closest(".container")
+    if (!ev.target.contains(dropLocation)) {
+        dropLocation.append(document.getElementById(data));
+        targetId = dropLocation.id
+    } else {
+        ev.target.append(document.getElementById(data));
+        targetId = ev.target.id
     }
-    ev.target.append(document.getElementById(data));
-    var targetId = ev.target.id
     updateStatus(targetId);
     saveState();
 }
@@ -178,80 +187,9 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-//to display task onclick event handler function
-function displayTask(e) {
-    for (let i = 0; i < taskStorage.length; i++) {
-        if (taskStorage[i].id == e.target.id) {
-            const box = e.target.parentNode.parentNode.parentNode;
-            if (box.classList == "box1") {
-                var innerContent = inc1;
-            } else if (box.classList == "box2") {
-                innerContent = inc2;
-            } else if (box.classList == "box3") {
-                innerContent = inc3;
-            } else {
-                innerContent = inc4;
-            }
-            box.style.visibility = "hidden";
-            innerContent.style.visibility = "visible";
-            innerContent.querySelector(".text_container").innerText = taskStorage[i].name;
-            innerContent.querySelector(".textareaValue").innerText = taskStorage[i].description;
-        }
-    }
-}
-
-// code for to hide innerContent and close the open task
-btn_Done.forEach((element) => {
-    element.addEventListener("click", (el) => {
-        el.preventDefault();
-        const innerCont = el.target.parentNode.parentNode.parentNode;
-        if (innerCont.classList == "innerContent1") {
-            var boxes = box1;
-        } else if (innerCont.classList == "innerContent2") {
-            boxes = box2;
-        } else if (innerCont.classList == "innerContent3") {
-            boxes = box3;
-        } else {
-            boxes = box4;
-        }
-        innerCont.style.visibility = "hidden";
-        boxes.style.visibility = "visible";
-    });
-});
-
-// deleting specified task
-const btn_delete = document.querySelectorAll(".btn_delete");
-btn_delete.forEach((element) => {
-    element.addEventListener("click", (el) => {
-        el.preventDefault();
-        const innerCont = el.target.parentNode.parentNode.parentNode;
-        if (innerCont.classList == "innerContent1") {
-            var boxes = box1;
-        } else if (innerCont.classList == "innerContent2") {
-            boxes = box2;
-        } else if (innerCont.classList == "innerContent3") {
-            boxes = box3;
-        } else {
-            boxes = box4;
-        }
-        const deletedTask = el.target.parentNode.previousElementSibling.previousElementSibling.innerText;
-        deleteTask(deletedTask);
-        innerCont.style.visibility = "hidden";
-        boxes.style.visibility = "visible";
-    });
-});
-
-//deleting task function
-function deleteTask(task) {
-    for (let i = 0; i < taskStorage.length; i++) {
-        if (taskStorage[i].name == task) {
-            let index = i;
-            taskStorage.splice(index, 1);
-        }
-    }
-    saveState();
-    window.location = window.location
-}
+var taskStorage = initializeTask();
+saveState();
+render();
 
 //update status function
 function updateStatus(tId) {
@@ -269,8 +207,7 @@ function updateStatus(tId) {
     }
 }
 
-var taskStorage = initializeTask()
-render();
+
 
 
 

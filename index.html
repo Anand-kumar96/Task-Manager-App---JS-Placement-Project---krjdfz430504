@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>task manager | Anand Kumar</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
     <h1 class="heading">Task Manager</h1>
     <div class="add_Task">
@@ -17,8 +19,7 @@
     </div>
     <div class="modal-content">
         <div class="modal"><span class="text_front"></span></div>
-        <textarea class="text_description" name="" id="textareas" cols="43" rows="15" style="font-size: 12pt"
-            placeholder="write the description here..."></textarea>
+        <input type="text" class="text_description" id="description_input" placeholder="Write description here..." />
         <div class="modal modal_down">
             <button class="btn_bottom btn_Cancel">Cancel</button>
             <button class="btn_bottom btn_Save">Save</button>
@@ -46,59 +47,13 @@
         <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div4">
         </div>
     </div>
-    <div class="innerContent1" id="div1">
-        <div class="main_content">
-            <div class="task_Name top">
-                <span class="text_container"></span>
-            </div>
-            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
-                style="font-size: 12pt" placeholder="write the description here..."></textarea>
-            <div class="task_Name bottom">
-                <button class="btn_bottom btn_delete">Delete</button>
-                <button class="btn_bottom btn_done">Close</button>
-            </div>
-        </div>
-    </div>
-    <div class="innerContent2" id="div2">
-        <div class="main_content">
-            <div class="task_Name top">
-                <span class="text_container"></span>
-            </div>
-            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
-                style="font-size: 12pt" placeholder="write the description here..."></textarea>
-            <div class="task_Name bottom">
-                <button class="btn_bottom btn_delete">Delete</button>
-                <button class="btn_bottom btn_done">Close</button>
-            </div>
-        </div>
-    </div>
-    <div class="innerContent3" id="div3">
-        <div class="main_content">
-            <div class="task_Name top">
-                <span class="text_container"></span>
-            </div>
-            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
-                style="font-size: 12pt" placeholder="write the description here..."></textarea>
-            <div class="task_Name bottom">
-                <button class="btn_bottom btn_delete">Delete</button>
-                <button class="btn_bottom btn_done">Close</button>
-            </div>
-        </div>
-    </div>
-    <div class="innerContent4" id="div4">
-        <div class="main_content">
-            <div class="task_Name top">
-                <span class="text_container"></span>
-            </div>
-            <textarea readonly name="area" class="textareaValue" id="textareas" cols="28" rows="15"
-                style="font-size: 12pt" placeholder="write the description here..."></textarea>
-            <div class="task_Name bottom">
-                <button class="btn_bottom btn_delete">Delete</button>
-                <button class="btn_bottom btn_done">Close</button>
-            </div>
-        </div>
-    </div>
+
+    <img src="./images/deleteBox.png" class="recyclebin" ondrop="deleteTask(event) " ondragover="allowDrop(event)"
+        alt="deleteing Task">
+    <p class="useMe">Use Me</p></img>
+
     <script src="./colors.js"></script>
     <script src="./App.js"></script>
 </body>
+
 </html>
