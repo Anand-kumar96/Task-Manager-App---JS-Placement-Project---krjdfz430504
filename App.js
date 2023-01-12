@@ -84,7 +84,7 @@ const deleteTask = (e) => {
         const taskDeleted = taskStorage[i];
         // console.log(taskDeleted.id)
         // console.log(data)
-        if (data === taskDeleted.id) {
+        if (data === taskDeleted.id && taskDeleted.status!='Done') {
             taskStorage.splice(i, 1);
             saveState();
             render();
