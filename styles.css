@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+    background: #4a776e;
     overflow: hidden;
 }
 .recyclebin{
