@@ -9,6 +9,7 @@ const btn_Save = document.querySelector(".btn_Save");
 const btn_Cancel = document.querySelector(".btn_Cancel");
 const btn_Done = document.querySelectorAll(".btn_done");
 const allContainer = document.querySelectorAll(".container");
+const text_front = document.querySelector(".text_front")
 
 var localStorageKey = "taskmanager";
 var dragTarget;
@@ -105,6 +106,7 @@ addTask.addEventListener("submit", (e) => {
         document.querySelector(".modal-content").style.visibility = "visible";
         document.querySelector(".modal-content").style.zIndex = "1";
         text_value = addText.value.trim(" ");
+        text_front.innerText = text_value;
     }
 });
 
@@ -120,6 +122,7 @@ btn_Save.addEventListener("click", (el) => {
     taskStorage.unshift(taskObject);
     addText.value = "";
     text_description.value = "";
+    text_front.innerText ="";
     saveState();
     render();
     document.querySelector(".modal-content").style.visibility = "hidden";
@@ -131,6 +134,7 @@ btn_Cancel.addEventListener("click", (e) => {
     document.querySelector(".modal-content").style.visibility = "hidden";
     addText.value = "";
     text_description.value = "";
+    text_front.innerText ="";
     return;
 });
 
