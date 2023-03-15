@@ -10,13 +10,17 @@
 </head>
 
 <body>
-    <h1 class="heading">Task Manager</h1>
-    <div class="add_Task">
-        <form>
-            <input type="text" name="task" placeholder="Add Task Name..." class="add_name" />
-            <input type="submit" value="Add Task" class="submit" />
-        </form>
+    <div class="header">
+        <h1 class="heading">Task Manager</h1>
+        <button class="color_change">change background</button>
     </div>
+       <div class="add_Task">
+           <form>
+               <input type="text" name="task" placeholder="Add Task Name..." class="add_name" />
+               <input type="submit" value="Add Task" class="submit" />
+           </form>
+       </div>
+
     <div class="modal-content">
         <div class="modal"><span class="text_front"></span></div>
         <input type="text" class="text_description" id="description_input" placeholder="Write description here..." />
@@ -25,32 +29,34 @@
             <button class="btn_bottom btn_Save">Save</button>
         </div>
     </div>
-    <button class="color_change">change background</button>
+    <div class="BoxConatiner">
     <div class="box1">
-        <div class="open">OPEN</div>
+        <div class="open h1">OPEN</div>
         <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
         </div>
     </div>
     <div class="box2">
-        <div class="Progress">IN PROGRESS</div>
+        <div class="Progress h2" >IN PROGRESS</div>
         <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div2">
         </div>
     </div>
     <div class="box3">
-        <div class="Review">IN REVIEW</div>
+        <div class="Review h3">IN REVIEW</div>
         <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div3">
 
         </div>
     </div>
-    <div class="box4">
-        <div class="Done">DONE</div>
+    <div class="box4 ">
+        <div class="Done h4">DONE</div>
         <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)" id="div4">
         </div>
     </div>
+</div>
 
+  <div class="trash">
     <img src="./images/deleteBox.png" class="recyclebin" ondrop="deleteTask(event) " ondragover="allowDrop(event)"
-        alt="deleteing Task">
-    <p class="useMe">Use Me</p></img>
+    alt="deleteing Task"></img>
+  </div>
 
     <script src="./colors.js"></script>
     <script src="./App.js"></script>

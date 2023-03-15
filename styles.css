@@ -4,36 +4,35 @@
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+    /* overflow: hidden; */
+}
+.trash{
+    margin-top: -4vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #4a776e;
-    overflow: hidden;
+    flex-direction: column;
+    align-items:flex-end;
+   justify-content:flex-start;
 }
 .recyclebin{
-    position: absolute;
-    margin: 540px 0px 0px 1400px;
     height: 120px;
-    width: 120px;
+    width: 124px;
+    
 }
-.useMe{
-    position: absolute;
-    margin: 680px 0px 0px 1410px;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-  
-}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    }
 .heading {
-    position: absolute;
+    margin-top: 1.4vw;
+    margin-left:36vw ;
     color: white;
-    margin-bottom: 615px;
 }
 .color_change {
-    position: absolute;
-    margin-bottom: 618px;
-    position: fixed;
+    margin-left: 15vw;
+    margin-top: 1.4vw;
     padding: 0.6rem 1rem;
     font-size: 16px;
     border-radius: 5px;
@@ -41,9 +40,10 @@ body {
     background-color: #efd14f;
     cursor: pointer;
     border: 2px red;
-    margin-left: 1262px;
 }
 .modal-content {
+    margin-top: 10vw;
+    margin-left: 33vw;
     visibility: hidden;
     position: absolute;
     background-color: #c4e1ed;
@@ -68,7 +68,6 @@ body {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    text-overflow: ellipsis;
     width: 404px;
     font-size: 20pt;
     padding-top: 9px;
@@ -78,8 +77,10 @@ body {
     color: rgb(236, 232, 232);
 }
 .add_Task {
-    position: absolute;
-    margin-bottom: 500px;
+    margin-top: 0.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .add_name {
     width: 548px;
@@ -101,11 +102,16 @@ body {
     background-color: rgb(50, 166, 166);
     color: #eaf1e6;
 }
+.BoxConatiner {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .box1,
 .box2,
 .box3,
 .box4 {
-    position: relative;
+    /* position: relative; */
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     color: black;
@@ -201,7 +207,7 @@ body {
 
 }
 .box3 .task {
-    background-color: #80dbe4;
+    background-color: #ea96ff;
 }
 .box4 .task {
     background-color: hsl(154, 64%, 73%);
@@ -269,4 +275,289 @@ body {
     border-radius: 5px;
     padding: 0.2rem 0.3rem;
     margin: 5px 0;
+}
+
+@media screen and (max-width :700px) {
+    .body{
+        overflow:hidden;
+    }
+    .header,
+    .h1,
+    .h2,
+    .h3,
+    .h4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    }
+    .header{
+        flex-wrap: wrap;
+    }
+    .heading {
+    margin-left: 6vw;
+    margin-top: 2vw;
+    }
+    .color_change {
+    margin-right: 8vw;
+    margin-top: 1.4vw;
+    padding: 5px 8px;
+    font-size: 14px;
+    }
+.BoxConatiner {
+   display: flex;
+   justify-content:space-around;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.box1,
+.box2,
+.box3,
+.box4 {
+    width: 170px;
+    height: 290px;
+    margin: 10px 5px;
+   
+}
+.Progress,
+.Review,
+.Done,
+.open{
+    border-radius: 5px 5px 0 0;
+    height: 35px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.Review ,
+.Progress,
+.Done,
+.open{
+    padding:0;
+}
+
+.add_name {
+    width: 300px;
+    padding: 0.4rem 0.4rem;
+    font-weight: 600;
+    margin-right: 5px;
+    font-size:12px;
+    border: none;
+    margin-bottom: 10px;
+}  
+.submit {
+    margin-bottom: 10px;
+    padding: 0.4rem 0.4rem;
+    font-weight: 600;
+    font-size: 12px;
+    border: none;
+}
+.container {
+    height: 250px;
+}
+.task {
+    border-radius: 10px;
+    margin: 4px 3px;
+}
+.mark {
+    width: 15px;
+    height: 5px;
+    border-radius: 3px;
+    margin: 6px 0 0 4px;
+}
+.text {
+    width: 168px;
+    padding: 0px 5px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+.description_Wrapper{
+    width: 168px;
+    font-size: 14px;
+    font-weight:500;
+    padding: 0px 5px;
+    margin: 5px 0;
+}
+.modal-content {
+    margin-top: 10vw ;
+    margin-left: 10vw;
+    width: 320px;
+    height: 190px;
+    border-radius: 10px;
+}
+.modal {
+    height: 30.5px;
+    border-radius: 10px 10px 0 0;
+}
+.modal_down {
+    border-radius: 0px 0px 10px 10px;
+}
+.text_front {
+    height: 28px;
+    font-size: 16px;
+    padding-top: 4px;
+    margin: 0px 5px;
+    font-weight: bold;
+}
+#description_input {
+    margin: 50px 5px 51.5px 5px;
+    border-radius: 5px;
+    width: 308px;
+    padding: 0.4rem 0.4rem;
+    font-weight: 500;
+    font-size: 12px;
+}
+.btn_bottom {
+    margin: 2px 8px;
+    border-radius: 5px;
+    padding: 0.1rem 0.4rem;
+}
+.trash{
+    margin-top: 0vw;
+}
+.recyclebin{
+    height: 70px;
+    width: 80px;  
+}
+}
+@media only screen and (min-width: 703px) and (max-width: 1224px) {
+    .body{
+        overflow:hidden;
+    }
+    .header,
+    .h1,
+    .h2,
+    .h3,
+    .h4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    }
+    .header{
+        flex-wrap: wrap;
+    }
+    .heading {
+    margin-left: 22vw;
+    margin-top: 3vw;
+    }
+    .color_change {
+    /* margin-right: 8vw; */
+    margin-top: 3vw;
+    padding: 5px 8px;
+    font-size: 14px;
+    }
+.BoxConatiner {
+   display: flex;
+   justify-content:space-around;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.box1,
+.box2,
+.box3,
+.box4 {
+    width: 330px;
+    height: 450px;
+    margin: 15px 5px;
+   
+}
+.Progress,
+.Review,
+.Done,
+.open{
+    border-radius: 5px 5px 0 0;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.Review ,
+.Progress,
+.Done,
+.open{
+    padding:0;
+}
+
+.add_name {
+    width: 500px;
+    padding: 0.4rem 0.5rem;
+    font-weight: 600;
+    margin-right: 5px;
+    font-size:15px;
+    border: none;
+    margin-bottom: 10px;
+}  
+.submit {
+    margin-bottom: 10px;
+    padding: 0.4rem 0.5rem;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+}
+.container {
+    height: 400px;
+}
+.task {
+    border-radius: 10px;
+    margin: 6px 5px;
+}
+.mark {
+    width: 30px;
+    height: 6px;
+    border-radius: 3px;
+    margin: 10px 5px 5px 10px;
+}
+.text {
+    width: 315px;
+    padding: 5px 2px 5px 8px ;
+    font-size: 18px;
+    margin-top: 6px;
+}
+.description_Wrapper{
+    width: 315px;
+    font-size: 18px;
+    font-weight:500;
+    padding: 5px 5px;
+    margin: 5px 0;
+}
+.modal-content {
+    margin-top: 10vw ;
+    margin-left: 31vw;
+    width: 460px;
+    height: 250px;
+    border-radius: 10px;
+}
+.modal {
+    height: 40.5px;
+    border-radius: 10px 10px 0 0;
+}
+.modal_down {
+    border-radius: 0px 0px 10px 10px;
+}
+.text_front {
+    height: 28px;
+    font-size: 18px;
+    padding-top: 5px;
+    margin: 0px 8px;
+    font-weight: bold;
+}
+#description_input {
+    margin: 67px 10px ;
+    border-radius: 5px;
+    width: 440px;
+    padding: 0.5rem 0.4rem;
+    font-weight: 500;
+    font-size: 16px;
+}
+.btn_bottom {
+    margin: 5px 8px;
+    border-radius: 5px;
+    padding: 0.3rem 0.4rem;
+}
+.trash{
+    margin: -40vw 5vw 0vw 0vw;
+}
+.recyclebin{
+    height: 100px;
+    width: 120px;  
+}
 }
