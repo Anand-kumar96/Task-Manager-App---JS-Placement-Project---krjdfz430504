@@ -554,7 +554,7 @@ body {
     padding: 0.3rem 0.4rem;
 }
 .trash{
-    margin: -40vw 5vw 0vw 0vw;
+    margin:0vw 5vw 0vw 0vw;
 }
 .recyclebin{
     height: 100px;
