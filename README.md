@@ -24,8 +24,6 @@ This is web based live Task Manager App, and this is responsive by nature for bi
 - It allows user to edit description of respective task in only Open state.
 - User can also Drag and Drop any task from one state to another state.
 - User data will be saved using Local Storage. 
-- User can change the background colour randomly by clicking on change
-  background.
 
 
 ### Screenshot

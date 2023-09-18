@@ -27,7 +27,7 @@ body {
     }
 .heading {
     margin-top: 1.4vw;
-    margin-left:36vw ;
+    /* margin-left:36vw ; */
     color: white;
 }
 .color_change {
